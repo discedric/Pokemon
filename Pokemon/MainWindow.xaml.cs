@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Pokemon.Classes;
+using Pokemon.Pages;
 using static System.Net.WebRequestMethods;
 
 namespace Pokemon
@@ -21,45 +22,29 @@ namespace Pokemon
     /// </summary>
     public partial class MainWindow : Window
     {
+        Search Search = new Search();
+        Pokedex Pokedex = new Pokedex();
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        static async Task<generation1> getpokemons(HttpClient client)
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            string api = "https://pokeapi.co/api/v2/generation/generation-i";
-            try
-            {
-                var json = await client.GetStringAsync(api);
-                var pokemons = JsonSerializer.Deserialize<generation1>(json);
-                return pokemons;
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
+            frmScherm.Content = Search;
         }
 
-        static async Task<generation1> getpokemon(HttpClient client, string api)
+        private void btnPokedex_Click(object sender, RoutedEventArgs e)
         {
-
-            try
-            {
-                var json = await client.GetStringAsync(api);
-                var pokemons = JsonSerializer.Deserialize<generation1>(json);
-                return pokemons;
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
+            frmScherm.Content = Pokedex;
         }
 
-        private async void getPokemon()
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            using HttpClient client = new();
-            var pokemons = await getpokemons(client);
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
         }
     }
 }
