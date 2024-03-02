@@ -35,7 +35,7 @@ namespace Pokemon.Classes
         {
             try
             {
-                Naam = Naam.ToLower();
+                Naam = Naam.ToLower().Trim();
                 var json = await client.GetStringAsync($"https://pokeapi.co/api/v2/pokemon/{Naam}");
                 if(json =="Not Found")
                 {
