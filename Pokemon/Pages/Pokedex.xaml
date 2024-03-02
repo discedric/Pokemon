@@ -9,6 +9,24 @@
       Title="Pokedex">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="lsvPokemons" Margin="29,28,41,72" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Background="{Binding ColorItem}" HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Width="100" Height="100" Source="{Binding Sprite}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Naam}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5,0"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Right" Margin="0,0,41,42" Width="100" Click="btnClear_Click" Height="25" VerticalAlignment="Bottom"/>
+
     </Grid>
 </Page>

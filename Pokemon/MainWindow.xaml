@@ -5,15 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pokemon"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" MouseDown="Window_MouseDown">
+        Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="410"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="400" FontSize="18" Click="btnSearch_Click"/>
-        <Button x:Name="btnPokedex" Content="Pokédex" HorizontalAlignment="Left" Margin="400,0,0,0" VerticalAlignment="Center" Height="40" Width="400" FontSize="18" Click="btnPokedex_Click"/>
-        <Frame x:Name="frmScherm" Content="{Binding CurrentPage}" Grid.Row="1" NavigationUIVisibility="Hidden" Height="410"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="953,292,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btnSearch" Content="Search" Grid.Row="0" Grid.Column="0" FontSize="18" Click="btnSearch_Click"/>
+        <Button x:Name="btnPokedex" Content="Pokédex" Grid.Row="0" Grid.Column="1" FontSize="18" Click="btnPokedex_Click"/>
+        <Frame x:Name="frmScherm" NavigationUIVisibility="Hidden" Grid.Row="1" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

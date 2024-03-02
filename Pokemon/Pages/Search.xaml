@@ -9,12 +9,15 @@
       Title="Search">
 
     <Grid>
-        <TextBox x:Name="txbSearch" HorizontalAlignment="Left" Height="25" Margin="20,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="700" TextAlignment="Center"/>
-        <Button x:Name="btnSearch" Content="S" HorizontalAlignment="Left" Height="25" Margin="739,24,0,0" VerticalAlignment="Top" Width="40" Click="btnSearch_Click"/>
-        <Button x:Name="btnRandom" Content="R" HorizontalAlignment="Left" Height="25" Margin="739,60,0,0" VerticalAlignment="Top" Width="40" Click="btnRandom_Click"/>
-        <Image x:Name="imgSprite" HorizontalAlignment="Left" Height="150" Margin="29,95,0,0" VerticalAlignment="Top" Width="150"/>
-        <TextBlock x:Name="txbInfo" HorizontalAlignment="Left" Height="200" Margin="220,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="500"/>
-        <Button x:Name="btnCatch" Content="Throw ball" HorizontalAlignment="Left" Height="80" Margin="260,290,0,0" VerticalAlignment="Top" Width="186" Click="btnCatch_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="txbSearch" Height="25" Margin="20,24,80,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Center"/>
+        <Button x:Name="btnSearch" Content="S" Height="25" Margin="0,24,21,0" VerticalAlignment="Top" Click="btnSearch_Click" HorizontalAlignment="Right" Width="40"/>
+        <Button x:Name="btnRandom" Content="R" Margin="0,60,21,0" Click="btnRandom_Click" HorizontalAlignment="Right" Width="40" Height="25" VerticalAlignment="Top"/>
+        <Image x:Name="imgSprite" Stretch="Uniform" Width="150" Height="150" Margin="182,96,468,164"/>
+        <TextBlock x:Name="txbInfo" Width="200" Height="200" Margin="373,73,227,137" TextWrapping="Wrap"/>
+        <Button x:Name="btnCatch" Content="Throw ball" Margin="260,0,354,40" Click="btnCatch_Click" Height="80" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Page>

@@ -31,20 +31,14 @@ namespace Pokemon
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            Search.refresh();
             frmScherm.Content = Search;
         }
 
         private void btnPokedex_Click(object sender, RoutedEventArgs e)
         {
             frmScherm.Content = Pokedex;
-        }
-
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if(e.LeftButton == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
+            Pokedex.LoadCaughtPokemons();
         }
     }
 }
