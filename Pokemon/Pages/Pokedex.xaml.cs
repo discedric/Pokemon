@@ -72,11 +72,14 @@ namespace Pokemon.Pages
                 if (caughtPokemons.Any(p => p.name == pokemon.name))
                 {
                     listItem.ColorItem = GetColorForType(pokemon.types[0].type.name);
-                    var groupedPokemons = caughtPokemons.GroupBy(p => p.name);
-                    foreach (var group in groupedPokemons)
-                    {
-                        listItem.Naam += ($" - Caught {group.Count()} times");
 
+                    // Find the group corresponding to the current Pokémon
+                    var currentGroup = caughtPokemons.GroupBy(p => p.name).FirstOrDefault(g => g.Key == pokemon.name);
+
+                    // If the group is found, append the caught count to the Naam property
+                    if (currentGroup != null)
+                    {
+                        listItem.Naam += $" - Caught {currentGroup.Count()} times";
                     }
                 }
 

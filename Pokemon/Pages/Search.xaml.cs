@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -90,9 +91,9 @@ namespace Pokemon.Pages
             Random random = new Random();
             double randomNumber = random.NextDouble();
 
-            while (catchAttempts < 3)
+            if (catchAttempts < 2)
             {
-                if(randomNumber < catchProbability)
+                if (randomNumber < catchProbability)
                 {
                     caughtPokemons.Add(pokemon);
                     SaveCaughtPokemons();
@@ -102,8 +103,12 @@ namespace Pokemon.Pages
                 }
                 catchAttempts++;
             }
-            MessageBox.Show("You failed to catch " + pokemon.name + ".");
-            catchAttempts = 0;
+            else
+            {
+                refresh();
+                MessageBox.Show("You failed to catch " + pokemon.name + ".");
+                catchAttempts = 0;
+            }
         }
 
         private void SaveCaughtPokemons()
