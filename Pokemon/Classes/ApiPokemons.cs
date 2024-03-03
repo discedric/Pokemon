@@ -42,6 +42,10 @@ namespace Pokemon.Classes
                     return null;
                 }
                 var pokemon = JsonSerializer.Deserialize<pokemon>(json);
+                if(pokemon.id > 151)
+                {
+                    return null;
+                }
                 return pokemon;
             }
             catch (Exception e)

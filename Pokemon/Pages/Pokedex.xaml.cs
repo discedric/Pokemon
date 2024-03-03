@@ -57,7 +57,6 @@ namespace Pokemon.Pages
             IList<pokemon> firstGenPokemons = await ApiPokemons.GetPokemons(new HttpClient());
             firstGenPokemons = firstGenPokemons.OrderBy(p => p.id).ToList();
 
-            // Populate the ListView with first-generation Pokémon
             lsvPokemons.Items.Clear();
             foreach (var pokemon in firstGenPokemons)
             {
@@ -68,15 +67,12 @@ namespace Pokemon.Pages
                     Sprite = pokemon.sprites.front_default
                 };
 
-                // Check if this Pokémon is caught
                 if (caughtPokemons.Any(p => p.name == pokemon.name))
                 {
                     listItem.ColorItem = GetColorForType(pokemon.types[0].type.name);
 
-                    // Find the group corresponding to the current Pokémon
                     var currentGroup = caughtPokemons.GroupBy(p => p.name).FirstOrDefault(g => g.Key == pokemon.name);
 
-                    // If the group is found, append the caught count to the Naam property
                     if (currentGroup != null)
                     {
                         listItem.Naam += $" - Caught {currentGroup.Count()} times";

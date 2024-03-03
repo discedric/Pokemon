@@ -9,9 +9,6 @@
       Title="Pokedex">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
         <ListView x:Name="lsvPokemons" Margin="29,28,41,72" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
             <ListView.ItemTemplate>
                 <DataTemplate>
